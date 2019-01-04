@@ -20,9 +20,13 @@ export default {
   methods: {
     fetchItems() {
       fetch(
-        `https://liferay-liferayapio.wedeploy.io/o/api/content-space/20126/structured-contents`
+        `https://life-liferayagora.wedeploy.io/o/api/content-space/20126/structured-contents`
       )
         .then(stream => stream.json())
+        .then(stream => {
+          console.log(stream);
+          return stream;
+        })
         .then(data => (this.meetups = data._embedded.StructuredContent))
         .catch(error => console.error(error));
     }
